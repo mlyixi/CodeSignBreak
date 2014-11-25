@@ -1,0 +1,3 @@
+[submodule "XcodeKit"]
+	path = XcodeKit
+	url = https://github.com/mlyixi/XcodeKit.git

@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6873DE911A174D6D000097AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6873DE901A174D6D000097AD /* AppDelegate.m */; };
+		6873DE931A174D6D000097AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6873DE921A174D6D000097AD /* main.m */; };
+		6873DE951A174D6D000097AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6873DE941A174D6D000097AD /* Images.xcassets */; };
+		6873DE981A174D6D000097AD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6873DE961A174D6D000097AD /* MainMenu.xib */; };
+		6873DEA41A174D6D000097AD /* CodeSignBreakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6873DEA31A174D6D000097AD /* CodeSignBreakTests.m */; };
+		68AF36111A19B13900FAD0BD /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF36101A19B13900FAD0BD /* DragDropImageView.m */; };
+		68B66BA01A198FA3002A4910 /* iPhoneDeveloper.cer in Resources */ = {isa = PBXBuildFile; fileRef = 68B66B9F1A198FA3002A4910 /* iPhoneDeveloper.cer */; };
+		68C63F561A244E230022E323 /* libXcodeKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C63F551A244E230022E323 /* libXcodeKit.a */; };
+		68C63F841A24533C0022E323 /* runscript.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68C63F831A24533C0022E323 /* runscript.txt */; };
+		68E11D2B1A19F0A5001CAB8B /* XcodeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E11D2A1A19F0A5001CAB8B /* XcodeImageView.m */; };
+		68E11D2E1A19F0B8001CAB8B /* ProjectImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E11D2D1A19F0B8001CAB8B /* ProjectImageView.m */; };
+		68E11D301A19FDFE001CAB8B /* Entitlements.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68E11D2F1A19FDFE001CAB8B /* Entitlements.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6873DE9E1A174D6D000097AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6873DE821A174D6D000097AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6873DE891A174D6D000097AD;
+			remoteInfo = CodeSignBreak;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6873DE8A1A174D6D000097AD /* CodeSignBreak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeSignBreak.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6873DE8E1A174D6D000097AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6873DE8F1A174D6D000097AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6873DE901A174D6D000097AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6873DE921A174D6D000097AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6873DE941A174D6D000097AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6873DE971A174D6D000097AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6873DE9D1A174D6D000097AD /* CodeSignBreakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeSignBreakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6873DEA21A174D6D000097AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6873DEA31A174D6D000097AD /* CodeSignBreakTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeSignBreakTests.m; sourceTree = "<group>"; };
+		68AF360F1A19B13900FAD0BD /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
+		68AF36101A19B13900FAD0BD /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
+		68B66B9F1A198FA3002A4910 /* iPhoneDeveloper.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = iPhoneDeveloper.cer; sourceTree = "<group>"; };
+		68C63F551A244E230022E323 /* libXcodeKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXcodeKit.a; path = XcodeKit/build/Debug/libXcodeKit.a; sourceTree = "<group>"; };
+		68C63F831A24533C0022E323 /* runscript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = runscript.txt; sourceTree = "<group>"; };
+		68E11D291A19F0A5001CAB8B /* XcodeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeImageView.h; sourceTree = "<group>"; };
+		68E11D2A1A19F0A5001CAB8B /* XcodeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeImageView.m; sourceTree = "<group>"; };
+		68E11D2C1A19F0B8001CAB8B /* ProjectImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectImageView.h; sourceTree = "<group>"; };
+		68E11D2D1A19F0B8001CAB8B /* ProjectImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectImageView.m; sourceTree = "<group>"; };
+		68E11D2F1A19FDFE001CAB8B /* Entitlements.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Entitlements.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6873DE871A174D6D000097AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C63F561A244E230022E323 /* libXcodeKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6873DE9A1A174D6D000097AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6873DE811A174D6D000097AD = {
+			isa = PBXGroup;
+			children = (
+				68C63F551A244E230022E323 /* libXcodeKit.a */,
+				6873DE8C1A174D6D000097AD /* CodeSignBreak */,
+				6873DEA01A174D6D000097AD /* CodeSignBreakTests */,
+				6873DE8B1A174D6D000097AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6873DE8B1A174D6D000097AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6873DE8A1A174D6D000097AD /* CodeSignBreak.app */,
+				6873DE9D1A174D6D000097AD /* CodeSignBreakTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6873DE8C1A174D6D000097AD /* CodeSignBreak */ = {
+			isa = PBXGroup;
+			children = (
+				6873DE8F1A174D6D000097AD /* AppDelegate.h */,
+				6873DE901A174D6D000097AD /* AppDelegate.m */,
+				68AF360F1A19B13900FAD0BD /* DragDropImageView.h */,
+				68AF36101A19B13900FAD0BD /* DragDropImageView.m */,
+				68E11D291A19F0A5001CAB8B /* XcodeImageView.h */,
+				68E11D2A1A19F0A5001CAB8B /* XcodeImageView.m */,
+				68E11D2C1A19F0B8001CAB8B /* ProjectImageView.h */,
+				68E11D2D1A19F0B8001CAB8B /* ProjectImageView.m */,
+				68C63F831A24533C0022E323 /* runscript.txt */,
+				68E11D2F1A19FDFE001CAB8B /* Entitlements.txt */,
+				68B66B9F1A198FA3002A4910 /* iPhoneDeveloper.cer */,
+				6873DE941A174D6D000097AD /* Images.xcassets */,
+				6873DE961A174D6D000097AD /* MainMenu.xib */,
+				6873DE8D1A174D6D000097AD /* Supporting Files */,
+			);
+			path = CodeSignBreak;
+			sourceTree = "<group>";
+		};
+		6873DE8D1A174D6D000097AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6873DE8E1A174D6D000097AD /* Info.plist */,
+				6873DE921A174D6D000097AD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6873DEA01A174D6D000097AD /* CodeSignBreakTests */ = {
+			isa = PBXGroup;
+			children = (
+				6873DEA31A174D6D000097AD /* CodeSignBreakTests.m */,
+				6873DEA11A174D6D000097AD /* Supporting Files */,
+			);
+			path = CodeSignBreakTests;
+			sourceTree = "<group>";
+		};
+		6873DEA11A174D6D000097AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6873DEA21A174D6D000097AD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6873DE891A174D6D000097AD /* CodeSignBreak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6873DEA71A174D6D000097AD /* Build configuration list for PBXNativeTarget "CodeSignBreak" */;
+			buildPhases = (
+				6873DE861A174D6D000097AD /* Sources */,
+				6873DE871A174D6D000097AD /* Frameworks */,
+				6873DE881A174D6D000097AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodeSignBreak;
+			productName = CodeSignBreak;
+			productReference = 6873DE8A1A174D6D000097AD /* CodeSignBreak.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6873DE9C1A174D6D000097AD /* CodeSignBreakTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6873DEAA1A174D6D000097AD /* Build configuration list for PBXNativeTarget "CodeSignBreakTests" */;
+			buildPhases = (
+				6873DE991A174D6D000097AD /* Sources */,
+				6873DE9A1A174D6D000097AD /* Frameworks */,
+				6873DE9B1A174D6D000097AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6873DE9F1A174D6D000097AD /* PBXTargetDependency */,
+			);
+			name = CodeSignBreakTests;
+			productName = CodeSignBreakTests;
+			productReference = 6873DE9D1A174D6D000097AD /* CodeSignBreakTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6873DE821A174D6D000097AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = mlyixi;
+				TargetAttributes = {
+					6873DE891A174D6D000097AD = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					6873DE9C1A174D6D000097AD = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 6873DE891A174D6D000097AD;
+					};
+				};
+			};
+			buildConfigurationList = 6873DE851A174D6D000097AD /* Build configuration list for PBXProject "CodeSignBreak" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6873DE811A174D6D000097AD;
+			productRefGroup = 6873DE8B1A174D6D000097AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6873DE891A174D6D000097AD /* CodeSignBreak */,
+				6873DE9C1A174D6D000097AD /* CodeSignBreakTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6873DE881A174D6D000097AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6873DE951A174D6D000097AD /* Images.xcassets in Resources */,
+				6873DE981A174D6D000097AD /* MainMenu.xib in Resources */,
+				68E11D301A19FDFE001CAB8B /* Entitlements.txt in Resources */,
+				68C63F841A24533C0022E323 /* runscript.txt in Resources */,
+				68B66BA01A198FA3002A4910 /* iPhoneDeveloper.cer in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6873DE9B1A174D6D000097AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6873DE861A174D6D000097AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68E11D2B1A19F0A5001CAB8B /* XcodeImageView.m in Sources */,
+				6873DE931A174D6D000097AD /* main.m in Sources */,
+				68E11D2E1A19F0B8001CAB8B /* ProjectImageView.m in Sources */,
+				68AF36111A19B13900FAD0BD /* DragDropImageView.m in Sources */,
+				6873DE911A174D6D000097AD /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6873DE991A174D6D000097AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6873DEA41A174D6D000097AD /* CodeSignBreakTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6873DE9F1A174D6D000097AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6873DE891A174D6D000097AD /* CodeSignBreak */;
+			targetProxy = 6873DE9E1A174D6D000097AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6873DE961A174D6D000097AD /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6873DE971A174D6D000097AD /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6873DEA51A174D6D000097AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6873DEA61A174D6D000097AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6873DEA81A174D6D000097AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/XcodeKit",
+				);
+				INFOPLIST_FILE = CodeSignBreak/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6873DEA91A174D6D000097AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/XcodeKit",
+				);
+				INFOPLIST_FILE = CodeSignBreak/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6873DEAB1A174D6D000097AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CodeSignBreakTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeSignBreak.app/Contents/MacOS/CodeSignBreak";
+			};
+			name = Debug;
+		};
+		6873DEAC1A174D6D000097AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CodeSignBreakTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeSignBreak.app/Contents/MacOS/CodeSignBreak";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6873DE851A174D6D000097AD /* Build configuration list for PBXProject "CodeSignBreak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6873DEA51A174D6D000097AD /* Debug */,
+				6873DEA61A174D6D000097AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6873DEA71A174D6D000097AD /* Build configuration list for PBXNativeTarget "CodeSignBreak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6873DEA81A174D6D000097AD /* Debug */,
+				6873DEA91A174D6D000097AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6873DEAA1A174D6D000097AD /* Build configuration list for PBXNativeTarget "CodeSignBreakTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6873DEAB1A174D6D000097AD /* Debug */,
+				6873DEAC1A174D6D000097AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6873DE821A174D6D000097AD /* Project object */;
+}
