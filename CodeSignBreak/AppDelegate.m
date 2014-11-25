@@ -20,7 +20,8 @@
 @end
 
 @implementation AppDelegate
-NSString *kSDKSettingsString=@"/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/SDKSettings.plist";
+NSString *kSDKsPath=@"/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs";
+NSString *kSDKSetting=@"/SDKSettings.plist";
 NSString *kInfoString=@"/Contents/Developer/Platforms/iPhoneOS.platform/Info.plist";
 NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
 
@@ -66,24 +67,38 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     }
 }
 
+-(void)killProcessesNamed:(NSString*)appName
+{
+    for ( NSRunningApplication *app in [[NSWorkspace sharedWorkspace] runningApplications] )
+    {
+        if ( [[[app executableURL] lastPathComponent] containsString:appName] )
+        {
+            [app terminate];
+        }
+    }
+}
 -(void)dragFinished:(NSString *)filePath patchProject:(BOOL)project
 {
+    [self killProcessesNamed:@"Xcode"];
     if (!project) {
         // xcode.app here
         if (self.patchCheck.state!=NSOnState) {
             //  xcode.app patch here
-            [self checkExitsAndPermission:filePath];
+            [self checkExistsAndPermission:filePath];
             [self addCertificate];
             [self patchInfo:filePath];
-            [self patchSDKSettings:filePath];
             [self patchEntitlement:filePath];
+            
+            
+            [self patchSDKSettings:filePath];
         }else{
             // xcode.app unpatch here
-            [self checkExitsAndPermission:filePath];
+            [self checkExistsAndPermission:filePath];
             [self deleteCertificate];
             [self unpatchInfo:filePath];
-            [self unpatchSDKSettings:filePath];
             [self unpatchEntitlement:filePath];
+            
+            [self unpatchSDKSettings:filePath];
         }
     }else
     {
@@ -98,7 +113,7 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     }
 }
 
--(void)checkExitsAndPermission:(NSString *)filePath
+-(void)checkExistsAndPermission:(NSString *)filePath
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error=nil;
@@ -113,30 +128,35 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
 
 -(void)patchSDKSettings:(NSString *)filePath
 {
-    NSString *sdkPath=[filePath stringByAppendingPathComponent:kSDKSettingsString];
+    NSString *sdkPath=[filePath stringByAppendingPathComponent:kSDKsPath];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     assert([fileManager fileExistsAtPath:sdkPath]==YES);
-    NSMutableDictionary *sdkDict=[[NSMutableDictionary alloc] initWithContentsOfFile:sdkPath];
-    NSMutableDictionary *DefaultProperties=[sdkDict valueForKey:@"DefaultProperties"];
-    
-    [DefaultProperties setObject:@"NO" forKey:@"CODE_SIGNING_REQUIRED"];
-    [DefaultProperties setObject:@"NO" forKey:@"ENTITLEMENTS_REQUIRED"];
-    [sdkDict writeToFile:sdkPath atomically:YES];
-    
+    NSArray *dirContents=[fileManager contentsOfDirectoryAtPath:sdkPath error:nil];
+    for (NSString *sdk in dirContents) {
+        NSString *sdkSettingPath=[[sdkPath stringByAppendingPathComponent:sdk] stringByAppendingPathComponent:kSDKSetting];
+        NSMutableDictionary *sdkSettingDict=[[NSMutableDictionary alloc] initWithContentsOfFile:sdkSettingPath];
+        NSMutableDictionary *DefaultProperties=[sdkSettingDict valueForKey:@"DefaultProperties"];
+        [DefaultProperties setObject:@"NO" forKey:@"CODE_SIGNING_REQUIRED"];
+        [DefaultProperties setObject:@"NO" forKey:@"ENTITLEMENTS_REQUIRED"];
+        [sdkSettingDict writeToFile:sdkSettingPath atomically:YES];
+    }
 }
 
 -(void)unpatchSDKSettings:(NSString *)filePath
 {
-    NSString *sdkPath=[filePath stringByAppendingPathComponent:kSDKSettingsString];
+    NSString *sdkPath=[filePath stringByAppendingPathComponent:kSDKsPath];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     assert([fileManager fileExistsAtPath:sdkPath]==YES);
-    NSMutableDictionary *sdkDict=[[NSMutableDictionary alloc] initWithContentsOfFile:sdkPath];
-    NSMutableDictionary *DefaultProperties=[sdkDict valueForKey:@"DefaultProperties"];
-    
-    [DefaultProperties setObject:@"YES" forKey:@"CODE_SIGNING_REQUIRED"];
-    [DefaultProperties setObject:@"YES" forKey:@"ENTITLEMENTS_REQUIRED"];
-    [sdkDict writeToFile:sdkPath atomically:YES];
-    
+    NSArray *dirContents=[fileManager contentsOfDirectoryAtPath:sdkPath error:nil];
+    for (NSString *sdk in dirContents) {
+        NSString *sdkSettingPath=[[sdkPath stringByAppendingPathComponent:sdk] stringByAppendingPathComponent:kSDKSetting];
+        NSMutableDictionary *sdkSettingDict=[[NSMutableDictionary alloc] initWithContentsOfFile:sdkSettingPath];
+        NSMutableDictionary *DefaultProperties=[sdkSettingDict valueForKey:@"DefaultProperties"];
+        
+        [DefaultProperties setObject:@"YES" forKey:@"CODE_SIGNING_REQUIRED"];
+        [DefaultProperties setObject:@"YES" forKey:@"ENTITLEMENTS_REQUIRED"];
+        [sdkSettingDict writeToFile:sdkSettingPath atomically:YES];
+    }    
 }
 
 -(void)patchInfo:(NSString *)filePath
@@ -188,8 +208,10 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     if (![fileManager fileExistsAtPath:entitlePath]) {
         [fileManager createDirectoryAtPath:entitlePath withIntermediateDirectories:YES attributes:nil error:nil];
         NSString *txtFile=[[NSBundle mainBundle] pathForResource:@"Entitlements" ofType:@"txt"];
-        NSString *pyFile=[entitlePath stringByAppendingPathComponent:@"Entitlements.py"];
+        NSString *pyFile=[entitlePath stringByAppendingPathComponent:@"gen_entitlements.py"];
         [fileManager copyItemAtPath:txtFile toPath:pyFile error:nil];
+        NSDictionary *attributes=@{NSFilePosixPermissions:[NSNumber numberWithShort:0777]};
+        [fileManager setAttributes:attributes ofItemAtPath:pyFile error:nil];
     };
 }
 
