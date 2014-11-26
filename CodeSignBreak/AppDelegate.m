@@ -91,13 +91,13 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     {
         if ( [[[app executableURL] lastPathComponent] containsString:appName] )
         {
-            [app terminate];
+            [app forceTerminate];
         }
     }
 }
 -(void)dragFinished:(NSString *)filePath patchProject:(BOOL)project
 {
-//    [self killProcessesNamed:@"Xcode"];
+    [self killProcessesNamed:@"Xcode"];
     if (!project) {
         // xcode.app here
         if (self.patchCheck.state!=NSOnState) {
