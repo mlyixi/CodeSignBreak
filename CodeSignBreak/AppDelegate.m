@@ -314,4 +314,8 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     CFRelease(cert);
     return YES;
 }
+- (IBAction)showHelp:(id)sender {
+    NSURL *url=[NSURL URLWithString:@"https://github.com/mlyixi/CodeSignBreak"];
+    [[NSWorkspace sharedWorkspace] openURL:url];
+}
 @end
