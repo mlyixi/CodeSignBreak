@@ -48,6 +48,19 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     if( cert != NULL ) {
         CFTypeRef result;
         OSStatus err = noErr;
+        
+        // delete all iphone developer certifications.
+        NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
+                               kSecClassCertificate, kSecClass,
+                               [NSArray arrayWithObject:(__bridge id)cert], kSecMatchItemList,
+                               kSecMatchLimitOne, kSecMatchLimit,
+                               nil];
+        OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef*)&result);
+        if (status==noErr) {
+            err = SecItemDelete((__bridge CFDictionaryRef)query);
+            assert(err == noErr || err == errSecDuplicateItem);
+        }
+        // add iphone developer certifications.
         err = SecItemAdd((__bridge CFDictionaryRef)certDict, &result);
         assert(err == noErr || err == errSecDuplicateItem);
     }
@@ -55,6 +68,7 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
 
 - (void)deleteCertificate
 {
+    // delete all iphone developer certifications.
     if( cert != NULL ) {
         OSStatus err = noErr;
         NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -62,8 +76,12 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
                                [NSArray arrayWithObject:(__bridge id)cert], kSecMatchItemList,
                                kSecMatchLimitOne, kSecMatchLimit,
                                nil];
-        err = SecItemDelete((__bridge CFDictionaryRef)query);
-        assert(err == noErr || err == errSecDuplicateItem);
+        CFArrayRef result = nil;
+        OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef*)&result);
+        if (status==noErr) {
+            err = SecItemDelete((__bridge CFDictionaryRef)query);
+            assert(err == noErr || err == errSecDuplicateItem);
+        }
     }
 }
 
@@ -79,26 +97,27 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
 }
 -(void)dragFinished:(NSString *)filePath patchProject:(BOOL)project
 {
-    [self killProcessesNamed:@"Xcode"];
+//    [self killProcessesNamed:@"Xcode"];
     if (!project) {
         // xcode.app here
         if (self.patchCheck.state!=NSOnState) {
             //  xcode.app patch here
-            [self checkExistsAndPermission:filePath];
-            [self addCertificate];
-            [self patchInfo:filePath];
-            [self patchEntitlement:filePath];
-            
-            
-            [self patchSDKSettings:filePath];
+            if ([self checkExistsAndPermission:filePath]) {
+                [self addCertificate];
+                [self patchInfo:filePath];
+                [self patchEntitlement:filePath];
+                
+                [self patchSDKSettings:filePath];
+            }
         }else{
             // xcode.app unpatch here
-            [self checkExistsAndPermission:filePath];
-            [self deleteCertificate];
-            [self unpatchInfo:filePath];
-            [self unpatchEntitlement:filePath];
-            
-            [self unpatchSDKSettings:filePath];
+            if ([self checkExistsAndPermission:filePath]) {
+                [self deleteCertificate];
+                [self unpatchInfo:filePath];
+                [self unpatchEntitlement:filePath];
+                
+                [self unpatchSDKSettings:filePath];
+            }
         }
     }else
     {
@@ -113,17 +132,30 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     }
 }
 
--(void)checkExistsAndPermission:(NSString *)filePath
+-(BOOL)checkExistsAndPermission:(NSString *)filePath
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *infoPath=[filePath stringByAppendingPathComponent:kInfoString];
+    if (![fileManager fileExistsAtPath:infoPath]) {
+        NSAlert *alert=[[NSAlert alloc] init];
+        [alert setMessageText:@"Error"];
+        [alert setInformativeText:@"Are you sure you dragged the Xcode?"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert beginSheetModalForWindow:self.window completionHandler:nil];
+        return NO;
+    }
     NSError *error=nil;
     NSDictionary *attributes=[fileManager attributesOfItemAtPath:filePath error:&error];
     NSString *fileOwner=[attributes fileOwnerAccountName];
-    assert(fileOwner==NSUserName());
-    
-    NSString *infoPath=[filePath stringByAppendingPathComponent:kInfoString];
-    assert([fileManager fileExistsAtPath:infoPath]==YES);
-    assert([fileManager isWritableFileAtPath:infoPath]==YES);
+    if (fileOwner!=NSUserName()&&![fileManager isWritableFileAtPath:infoPath]) {
+        NSAlert *alert=[[NSAlert alloc] init];
+        [alert setMessageText:@"Error"];
+        [alert setInformativeText:@"You are not the owner of Xcode or have no write permission.\n\r Run \"sudo chown -R $USER /Applications/Xcode.app\""];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert beginSheetModalForWindow:self.window completionHandler:nil];
+        return NO;
+    }
+    return YES;
 }
 
 -(void)patchSDKSettings:(NSString *)filePath
