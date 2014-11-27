@@ -12,8 +12,8 @@
 		6873DE951A174D6D000097AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6873DE941A174D6D000097AD /* Images.xcassets */; };
 		6873DE981A174D6D000097AD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6873DE961A174D6D000097AD /* MainMenu.xib */; };
 		6873DEA41A174D6D000097AD /* CodeSignBreakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6873DEA31A174D6D000097AD /* CodeSignBreakTests.m */; };
+		68AB6BA71A26F3B900361D71 /* Certificates.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 68AB6BA61A26F3B900361D71 /* Certificates.p12 */; };
 		68AF36111A19B13900FAD0BD /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF36101A19B13900FAD0BD /* DragDropImageView.m */; };
-		68B66BA01A198FA3002A4910 /* iPhoneDeveloper.cer in Resources */ = {isa = PBXBuildFile; fileRef = 68B66B9F1A198FA3002A4910 /* iPhoneDeveloper.cer */; };
 		68C63F561A244E230022E323 /* libXcodeKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C63F551A244E230022E323 /* libXcodeKit.a */; };
 		68C63F841A24533C0022E323 /* runscript.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68C63F831A24533C0022E323 /* runscript.txt */; };
 		68E11D2B1A19F0A5001CAB8B /* XcodeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E11D2A1A19F0A5001CAB8B /* XcodeImageView.m */; };
@@ -42,9 +42,9 @@
 		6873DE9D1A174D6D000097AD /* CodeSignBreakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeSignBreakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6873DEA21A174D6D000097AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6873DEA31A174D6D000097AD /* CodeSignBreakTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeSignBreakTests.m; sourceTree = "<group>"; };
+		68AB6BA61A26F3B900361D71 /* Certificates.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Certificates.p12; sourceTree = "<group>"; };
 		68AF360F1A19B13900FAD0BD /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		68AF36101A19B13900FAD0BD /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
-		68B66B9F1A198FA3002A4910 /* iPhoneDeveloper.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = iPhoneDeveloper.cer; sourceTree = "<group>"; };
 		68C63F551A244E230022E323 /* libXcodeKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXcodeKit.a; path = XcodeKit/build/Debug/libXcodeKit.a; sourceTree = "<group>"; };
 		68C63F831A24533C0022E323 /* runscript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = runscript.txt; sourceTree = "<group>"; };
 		68E11D291A19F0A5001CAB8B /* XcodeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeImageView.h; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 				68E11D2D1A19F0B8001CAB8B /* ProjectImageView.m */,
 				68C63F831A24533C0022E323 /* runscript.txt */,
 				68E11D2F1A19FDFE001CAB8B /* Entitlements.txt */,
-				68B66B9F1A198FA3002A4910 /* iPhoneDeveloper.cer */,
+				68AB6BA61A26F3B900361D71 /* Certificates.p12 */,
 				6873DE941A174D6D000097AD /* Images.xcassets */,
 				6873DE961A174D6D000097AD /* MainMenu.xib */,
 				6873DE8D1A174D6D000097AD /* Supporting Files */,
@@ -220,10 +220,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6873DE951A174D6D000097AD /* Images.xcassets in Resources */,
+				68AB6BA71A26F3B900361D71 /* Certificates.p12 in Resources */,
 				6873DE981A174D6D000097AD /* MainMenu.xib in Resources */,
 				68E11D301A19FDFE001CAB8B /* Entitlements.txt in Resources */,
 				68C63F841A24533C0022E323 /* runscript.txt in Resources */,
-				68B66BA01A198FA3002A4910 /* iPhoneDeveloper.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

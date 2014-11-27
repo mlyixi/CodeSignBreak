@@ -12,8 +12,7 @@
 
 @interface AppDelegate ()
 {
-    SecCertificateRef cert;
-    NSDictionary* certDict;
+    
 }
 @property (weak) IBOutlet NSButton *patchCheck;
 @property (weak) IBOutlet NSWindow *window;
@@ -28,60 +27,60 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    NSString* certPath = [[NSBundle mainBundle] pathForResource:@"iPhoneDeveloper" ofType:@"cer"];
-    NSData* certData = [NSData dataWithContentsOfFile:certPath];
-    if( [certData length] ) {
-        cert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)certData);
-        if( cert != NULL ) {
-            certDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  (id)kSecClassCertificate, kSecClass,
-                                  cert, kSecValueRef,
-                                  nil];
-        } else {
-            NSLog(@" *** ERROR *** trying to create certificate from data, but failed");
-        }
-    }
+    
 }
 
 - (void)addCertificate
 {
-    if( cert != NULL ) {
-        CFTypeRef result;
-        OSStatus err = noErr;
-        
-        // delete all iphone developer certifications.
-        NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
-                               kSecClassCertificate, kSecClass,
-                               [NSArray arrayWithObject:(__bridge id)cert], kSecMatchItemList,
-                               kSecMatchLimitOne, kSecMatchLimit,
-                               nil];
-        OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef*)&result);
-        if (status==noErr) {
-            err = SecItemDelete((__bridge CFDictionaryRef)query);
-            assert(err == noErr || err == errSecDuplicateItem);
-        }
-        // add iphone developer certifications.
-        err = SecItemAdd((__bridge CFDictionaryRef)certDict, &result);
-        assert(err == noErr || err == errSecDuplicateItem);
-    }
+    // delete all iphone developer certifications.
+    [self deleteCertificate];
+    
+    OSStatus status = noErr;
+    // add iphone developer certifications.
+    NSString *passwd=@"123456";
+    NSString* certPath = [[NSBundle mainBundle] pathForResource:@"Certificates" ofType:@"p12"];
+    CFStringRef cfPassword = CFStringCreateWithCString(NULL,passwd.UTF8String,kCFStringEncodingUTF8);
+    const void *keys[]   = { kSecImportExportPassphrase };
+    const void *values[] = { cfPassword };
+    CFDictionaryRef optionsDictionary= CFDictionaryCreate(kCFAllocatorDefault, keys, values, 1,NULL, NULL);
+    NSData * fileContent = [[NSData alloc] initWithContentsOfFile:certPath];
+    CFDataRef cfDataOfFileContent = (__bridge CFDataRef)fileContent;
+    CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
+    status = SecPKCS12Import(cfDataOfFileContent,optionsDictionary,&items);
+    assert(status==noErr);
+    
+    CFDictionaryRef identityAndTrust = CFArrayGetValueAtIndex(items, 0);
+    const void *tempIdentity = NULL;
+    tempIdentity = CFDictionaryGetValue(identityAndTrust,kSecImportItemIdentity);
+    
+    SecIdentityRef identity = (SecIdentityRef)tempIdentity;
+    SecCertificateRef cert = NULL;
+    status = SecIdentityCopyCertificate(identity, &cert);
+    assert(status==noErr);
+    
+    const void *keys2[] = {kSecValueRef,kSecClass};
+    const void *values2[] = {cert,kSecClassCertificate};
+    CFDictionaryRef dict = CFDictionaryCreate(kCFAllocatorDefault,keys2,values2,2,NULL,NULL);
+    status = SecItemAdd(dict,NULL);
+    assert(status==noErr||status==errKCDuplicateItem);
+    CFRelease(cert);
 }
 
 - (void)deleteCertificate
 {
     // delete all iphone developer certifications.
-    if( cert != NULL ) {
-        OSStatus err = noErr;
-        NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
-                               kSecClassCertificate, kSecClass,
-                               [NSArray arrayWithObject:(__bridge id)cert], kSecMatchItemList,
-                               kSecMatchLimitOne, kSecMatchLimit,
-                               nil];
-        CFArrayRef result = nil;
-        OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef*)&result);
-        if (status==noErr) {
-            err = SecItemDelete((__bridge CFDictionaryRef)query);
-            assert(err == noErr || err == errSecDuplicateItem);
-        }
+    OSStatus err = noErr;
+    NSString *email=@"yiyuxiniao@gmail.com";
+    NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
+                           kSecClassCertificate, kSecClass,
+                           email, kSecMatchEmailAddressIfPresent,
+                           kSecMatchLimitOne, kSecMatchLimit,
+                           nil];
+    CFArrayRef result = nil;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef*)&result);
+    if (status==noErr) {
+        err = SecItemDelete((__bridge CFDictionaryRef)query);
+        assert(err == noErr);
     }
 }
 
@@ -139,7 +138,7 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     if (![fileManager fileExistsAtPath:infoPath]) {
         NSAlert *alert=[[NSAlert alloc] init];
         [alert setMessageText:@"Error"];
-        [alert setInformativeText:@"Are you sure you dragged the Xcode?"];
+        [alert setInformativeText:@"Are you sure you dragged the Xcode.app?"];
         [alert addButtonWithTitle:@"Cancel"];
         [alert beginSheetModalForWindow:self.window completionHandler:nil];
         return NO;
@@ -147,10 +146,10 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
     NSError *error=nil;
     NSDictionary *attributes=[fileManager attributesOfItemAtPath:filePath error:&error];
     NSString *fileOwner=[attributes fileOwnerAccountName];
-    if (fileOwner!=NSUserName()&&![fileManager isWritableFileAtPath:infoPath]) {
+    if (fileOwner!=NSUserName()&& ![fileManager isWritableFileAtPath:infoPath]) {
         NSAlert *alert=[[NSAlert alloc] init];
         [alert setMessageText:@"Error"];
-        [alert setInformativeText:@"You are not the owner of Xcode or have no write permission.\n\r Run \"sudo chown -R $USER /Applications/Xcode.app\""];
+        [alert setInformativeText:@"You have no write permission.\n\r Run \"sudo chgrp -R admin /Applications/Xcode.app\""];
         [alert addButtonWithTitle:@"Cancel"];
         [alert beginSheetModalForWindow:self.window completionHandler:nil];
         return NO;
@@ -311,7 +310,6 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {
-    CFRelease(cert);
     return YES;
 }
 - (IBAction)showHelp:(id)sender {
