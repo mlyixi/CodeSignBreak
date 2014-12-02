@@ -1,0 +1,48 @@
+
+/* Class = "NSMenuItem"; title = "CodeSignBreak"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "CodeSignBreak";
+
+/* Class = "NSMenuItem"; title = "Quit CodeSignBreak"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit CodeSignBreak";
+
+/* Class = "NSMenuItem"; title = "About CodeSignBreak"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About CodeSignBreak";
+
+/* Class = "NSTextFieldCell"; title = "Jailbreak & Appsync Required"; ObjectID = "61N-om-O3A"; */
+"61N-om-O3A.title" = "Jailbreak & Appsync Required";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "CodeSignBreak Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "CodeSignBreak Help";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Hide CodeSignBreak"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide CodeSignBreak";
+
+/* Class = "NSWindow"; title = "CodeSignBreak"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "CodeSignBreak";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSButtonCell"; title = "Unpatch"; ObjectID = "d04-Di-dqt"; */
+"d04-Di-dqt.title" = "Unpatch";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenu"; title = "CodeSignBreak"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "CodeSignBreak";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Help";
