@@ -32,8 +32,9 @@ sudo chgrp -R admin /Applications/Xcode.app
 
 2. [appsync(not ppsync)](https://github.com/angelXwind/AppSync)
 
-# Just for Testing now
-Xcode 6.1 with iOS8
+# Testing
+Xcode 6.1 with iOS8 on 10.10.1
+Xcode 5.1 with iOS8 on 10.9.3
 
 # What CodeSignBreak does
 

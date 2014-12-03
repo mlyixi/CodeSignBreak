@@ -88,7 +88,7 @@ NSString *kEntitleString=@"/Contents/Developer/iphoneentitlements";
 {
     for ( NSRunningApplication *app in [[NSWorkspace sharedWorkspace] runningApplications] )
     {
-        if ( [[[app executableURL] lastPathComponent] containsString:appName] )
+        if ( [[[app executableURL] lastPathComponent] rangeOfString:appName].length>1 )
         {
             [app forceTerminate];
         }
