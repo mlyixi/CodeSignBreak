@@ -8,7 +8,7 @@ This is a tool that patches Xcode and your projects in order to let you install 
 ## On your computer
 There are two methods to install Xcode:
 
-1. draging it from dmg to `/Applications`.
+1. drag from dmg to `/Applications`.
 
 2. install from Appstore.
 
@@ -33,14 +33,13 @@ sudo chgrp -R admin /Applications/Xcode.app
 2. [appsync(not ppsync)](https://github.com/angelXwind/AppSync)
 
 # Testing
-Xcode 6.1 with iOS8 on 10.10.1
-Xcode 5.1 with iOS8 on 10.9.3
+* Xcode 6.1 with iOS8 on 10.10.1
+* Xcode 5.1 with iOS8 on 10.9.3
 
 # What CodeSignBreak does
+* [For English](http://stackoverflow.com/a/4180498/555336)
 
-[For English](http://stackoverflow.com/a/4180498/555336)
-
-[For Chinese](http://mlyixi.byethost32.com/blog/?p=84)
+* [For Chinese](http://mlyixi.byethost32.com/blog/?p=84)
 
 # Announcement
 For developers of personnal interest only.
