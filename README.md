@@ -1,6 +1,6 @@
 CodeSignBreak
 =============
-This is a tool that patches Xcode and your projects in order to let you install your apps on your `jailbreak` device with `appsync` like [JailCoder](http://oneiros.altervista.org/jailcoder/) which not updates now(on 10.10 and XCode6 crashed).
+This is a tool that patches Xcode and your projects in order to let you install your apps on your `jailbreak` device with `appsync` like [JailCoder](http://oneiros.altervista.org/jailcoder/) which not updates now(on 10.10 and Xcode6 crashed).
 
 [Download Link](http://mlyixi.qiniudn.com/CodeSignBreak.zip)
 
@@ -19,13 +19,10 @@ The latter installs the Xcode as `root` with group `wheel` while the former as `
 > /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/man/whatis
 > /Applications/Xcode.app/Contents/Developer/usr/share/man/whatis
 
-It's not a good option to elevate privileges in applications. So if you installed Xcode in Appstore, change it by following command: 
+It's not a good option to elevate privileges in applications. So if you installed Xcode in Appstore, change its group to `admin` by following command: 
  ```zsh
 sudo chgrp -R admin /Applications/Xcode.app 
  ```
- 
- If you have better command, welcome to provide.
-
 ## On your device
 
 1. Jailbreak
@@ -33,8 +30,10 @@ sudo chgrp -R admin /Applications/Xcode.app
 2. [appsync(not ppsync)](https://github.com/angelXwind/AppSync)
 
 # Testing
-* Xcode 6.1 with iOS8 on 10.10.1
-* Xcode 5.1 with iOS8 on 10.9.3
+I just have one device to test. So if you run `CodeSignBreak` well, it's pleasure to inform me.
+* Xcode 6.3 with iOS8.1 on 10.10.3
+* Xcode 6.1 with iOS8.1 on 10.10.1
+* Xcode 5.1 with iOS8.1 on 10.9.3
 
 # What CodeSignBreak does
 * [For English](http://stackoverflow.com/a/4180498/555336)
@@ -42,4 +41,4 @@ sudo chgrp -R admin /Applications/Xcode.app
 * [For Chinese](http://mlyixi.byethost32.com/blog/?p=84)
 
 # Announcement
-For developers of personnal interest only.
+For developers of personal interest only.
