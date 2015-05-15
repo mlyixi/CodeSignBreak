@@ -1,5 +1,6 @@
 CodeSignBreak
 =============
+[中文](https://github.com/mlyixi/CodeSignBreak/blob/master/README_cn.md)
 This is a tool that patches Xcode and your projects in order to let you install your apps on your `jailbreak` device with `appsync` like [JailCoder](http://oneiros.altervista.org/jailcoder/) which not updates now(on 10.10 and Xcode6 crashed).
 
 [Download Link](http://mlyixi.qiniudn.com/CodeSignBreak.zip)
