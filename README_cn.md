@@ -1,7 +1,8 @@
 CodeSignBreak
 =============
-由于[JailCoder](http://oneiros.altervista.org/jailcoder/)没有更新且在10.10下崩溃，所以仿照它自己写了一个iOS免证书真机调试的工具，主要功能是自动给Xcode和项目文件打补丁。请保证iOS设备已越狱并安装有`appsync`。
+由于[JailCoder](http://oneiros.altervista.org/jailcoder/)没有更新且在10.10下崩溃，所以仿照它自己写了一个iOS免证书真机调试的工具，主要功能是自动给Xcode6(-)和项目文件打补丁。请保证iOS设备已越狱并安装有`appsync`。
 
+Xcode7(+)官方允许真机调试了,不得不说是个好消息.
 [下载链接](http://mlyixi.qiniudn.com/CodeSignBreak.zip)
 
 # 要求

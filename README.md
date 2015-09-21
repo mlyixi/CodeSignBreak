@@ -2,8 +2,9 @@ CodeSignBreak
 =============
 [中文说明](https://github.com/mlyixi/CodeSignBreak/blob/master/README_cn.md)
 =============
-This is a tool that patches Xcode and your projects in order to let you install your apps on your `jailbreak` device with `appsync` like [JailCoder](http://oneiros.altervista.org/jailcoder/) which not updates now(on 10.10 and Xcode6 crashed).
+This is a tool that patches Xcode6(-) and your projects in order to let you install your apps on your `jailbreak` device with `appsync` like [JailCoder](http://oneiros.altervista.org/jailcoder/) which not updates now(on 10.10 and Xcode6 crashed).
 
+As to Xcode7(+), there are no need to hack Xcode and projects to debug on devices. Just create your free Signing Identities in Xcode--Preference--Accounts--AppleIDs--View Details and fix the warning. 
 [Download Link](http://mlyixi.qiniudn.com/CodeSignBreak.zip)
 
 # Requirements
